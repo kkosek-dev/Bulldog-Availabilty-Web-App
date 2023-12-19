@@ -18,4 +18,44 @@
     <button type="submit" class="btn btn-primary">Add Note</button>
   </div>
 </form>
+
+<script>
+  function generateCalendar() {
+  const selectedMonth = document.getElementById("selectedMonth").value;
+  const date = new Date(selectedMonth);
+  console.log(date)
+  const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+  const calendarDaysContainer = document.getElementById("calendarDays");
+  calendarDaysContainer.innerHTML = "";
+  
+  for (let day = 1; day <= daysInMonth; day++) {
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.name = `day${day}`;
+    checkbox.id = `day${day}`;
+    
+    const label = document.createElement("label");
+    label.htmlFor = `day${day}`;
+    label.appendChild(document.createTextNode(`${selectedMonth} Day ${day}`));
+    
+    const br = document.createElement("br");
+    
+    calendarDaysContainer.appendChild(checkbox);
+    calendarDaysContainer.appendChild(label);
+    calendarDaysContainer.appendChild(br);
+  }
+};
+</script>
+
+<form>
+  <fieldset>
+    <legend>Calendar</legend>
+    Month: <input type="month" id="selectedMonth" name="selectedMonth" onchange="generateCalendar()">
+  </fieldset>
+
+  <fieldset>
+    <legend>Days of the Month</legend>
+    <div id="calendarDays"></div>
+  </fieldset>
+</form>
 {% endblock %}
