@@ -23,7 +23,6 @@
   function generateCalendar() {
   const selectedMonth = document.getElementById("selectedMonth").value;
   const date = new Date(selectedMonth);
-  console.log(date)
   const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   const calendarDaysContainer = document.getElementById("calendarDays");
   calendarDaysContainer.innerHTML = "";

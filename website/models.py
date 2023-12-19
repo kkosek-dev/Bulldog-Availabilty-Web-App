@@ -17,6 +17,6 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(150))
     notes = db.relationship('Note')
 
-class Availability(db.Model, UserMixin):
-    id = db.Column(db.String(150))
+#class Availability(db.Model, UserMixin):
+#    id = db.Column(db.String(150))
     ## Structure?
